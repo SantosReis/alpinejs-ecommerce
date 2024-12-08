@@ -12,12 +12,17 @@
     ></script>
   </head>
   <body>
-    <header class="flex justify-between bg-slate-800 shadow-md text-white">
+    <header
+      x-data="{mobileMenuOpen: false}"
+      class="flex justify-between bg-slate-800 shadow-md text-white"
+    >
       <div>
         <a href="/src" class="block py-navbar-item pl-5"> Logo </a>
       </div>
+      <!-- Responsive Menu -->
       <div
         class="block fixed z-10 top-0 left-0 bottom-0 height h-full w-[220px] transition-all bg-slate-900 md:hidden"
+        :class="mobileMenuOpen ? 'left-0' : '-left-[220px]'"
       >
         <ul>
           <li>
@@ -223,6 +228,8 @@
           </li>
         </ul>
       </div>
+      <!--/ Responsive Menu -->
+      <!-- Pages Menu -->
       <nav class="hidden md:block">
         <ul class="grid grid-flow-col">
           <li>
@@ -248,6 +255,8 @@
           </li>
         </ul>
       </nav>
+      <!--/ Pages Menu -->
+      <!-- Account Menu -->
       <nav class="hidden md:block">
         <ul class="grid grid-flow-col items-center">
           <li>
@@ -435,7 +444,11 @@
           </li>
         </ul>
       </nav>
-      <button class="p-4 block md:hidden">
+      <!--/ Account Menu -->
+      <button
+        @click="mobileMenuOpen = !mobileMenuOpen"
+        class="p-4 block md:hidden"
+      >
         <svg
           xmlns="http://www.w3.org/2000/svg"
           class="h-6 w-6"
