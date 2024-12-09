@@ -6,12 +6,13 @@
     <link href="/dist/output.css" rel="stylesheet" />
 
     <!-- Alpine Plugins -->
+    <script defer src="app.js"></script>
     <script
       defer
       src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
     ></script>
   </head>
-  <body>
+  <body x-data="index">
     <header
       x-data="{mobileMenuOpen: false}"
       class="flex justify-between bg-slate-800 shadow-md text-white"
@@ -472,6 +473,7 @@
       </button>
     </header>
 
+    <p x-text="test"></p>
     <main class="p-5">
       <!-- Product List -->
       <div
