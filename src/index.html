@@ -971,17 +971,12 @@
 
     <!-- Toast -->
     <div
+      x-data="toast"
       x-show="toast.visible"
       x-transition
       class="fixed w-[400px] left-1/2 -ml-[200px] top-16 py-2 px-4 pb-4 bg-emerald-500 text-white"
     >
-      <div class="font-semibold mb-2">Lorem ipsum dolor sit.</div>
-      <div class="text-sm">
-        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Inventore
-        temporibus distinctio porro voluptatibus? Quam nostrum non culpa! Esse
-        numquam accusantium minima libero, rem mollitia eos, quod expedita iste
-        reprehenderit placeat.
-      </div>
+      <div class="font-semibold" x-text="toast.message"></div>
       <button
         @click="close"
         class="absolute flex items-center justify-center right-2 top-2 w-[30px] h-[30px] rounded-full hover:bg-black/10 transition-colors"

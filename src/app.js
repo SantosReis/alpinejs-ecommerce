@@ -1,31 +1,47 @@
 document.addEventListener('alpine:init', () => {
   Alpine.data('index', () => ({
-    productCounter: 10,
+    productCounter: 0,
     addToCart() {
       this.productCounter++
-      this.toast.show()
+      this.toast.show('The item was added into the cart')
     },
     toast: {
       visible: false,
       delay: 5000,
       percent: 0,
       interval: 0,
+      timeout: null,
+      message: null,
       close() {
         this.visible = false
         clearInterval(this.interval)
       },
-      show() {
+      show(message) {
         this.visible = true
-        setTimeout(() => {
-          // this.visible = false
-        }, this.timeout)
+        this.message = message
+
+        if (this.interval) {
+          clearInterval(this.interval)
+          this.timeout = null
+        }
+
+        if (this.timeout) {
+          clearTimeout(this.timeout)
+          this.interval = null
+        }
+
+        this.timeout = setTimeout(() => {
+          this.visible = false
+          this.timeout = null
+        }, this.delay)
         const startDate = Date.now()
-        const futureDate = Date.now() + this.timeout
+        const futureDate = Date.now() + this.delay
         this.interval = setInterval(() => {
           const date = Date.now()
           this.percent = ((date - startDate) * 100) / (futureDate - startDate)
           if (this.percent >= 100) {
             clearInterval(this.interval)
+            this.interval = null
           }
         }, 30)
       },
