@@ -11,6 +11,12 @@
       defer
       src="https://unpkg.com/alpinejs@3.10.2/dist/cdn.min.js"
     ></script>
+
+    <style>
+      [x-cloak] {
+        display: none !important;
+      }
+    </style>
   </head>
   <body x-data="index">
     <header
@@ -297,8 +303,9 @@
               <small
                 x-show="productCounter"
                 x-transition
+                x-cloak
                 x-text="productCounter"
-                class="absolute top-4 -right-3 py-[2px] px-[8px] rounded-full bg-red-500"
+                class="absolute z-[100] top-4 -right-3 py-[2px] px-[8px] rounded-full bg-red-500"
               ></small>
             </a>
           </li>
@@ -341,6 +348,7 @@
               @click.outside="open = false"
               x-show="open"
               x-transition
+              x-cloak
               class="absolute z-10 right-0 bg-slate-800 py-2 w-48"
             >
               <li>
@@ -574,7 +582,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -617,7 +625,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -660,7 +668,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -703,7 +711,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -746,7 +754,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -789,7 +797,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -832,7 +840,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -875,7 +883,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -918,7 +926,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -961,7 +969,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart">Add to Cart</button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -974,6 +982,7 @@
       x-data="toast"
       x-show="toast.visible"
       x-transition
+      x-cloak
       class="fixed w-[400px] left-1/2 -ml-[200px] top-16 py-2 px-4 pb-4 bg-emerald-500 text-white"
     >
       <div class="font-semibold" x-text="toast.message"></div>
