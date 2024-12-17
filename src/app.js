@@ -1,9 +1,14 @@
 document.addEventListener('alpine:init', () => {
   Alpine.data('index', () => ({
-    productCounter: 0,
+    cartItems: 0,
+    watchlistItems: 0,
     addToCart() {
-      this.productCounter++
+      this.cartItems++
       this.toast.show('The item was added into the cart')
+    },
+    addToWatchlist() {
+      this.watchlistItems++
+      this.toast.show('The item was added into the watchlist')
     },
     toast: {
       visible: false,
