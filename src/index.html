@@ -537,7 +537,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(1)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(1) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -581,7 +582,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(2)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(2) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -625,7 +627,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(3)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(3) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -669,7 +672,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(4)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(4) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -713,7 +717,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(5)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(5) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -757,7 +762,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(6)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(6) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -801,7 +807,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(7)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(7) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -845,7 +852,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(8)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(8) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -889,7 +897,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(9)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(9) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -933,7 +942,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(10)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(10) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -977,7 +987,8 @@
           <div class="flex justify-between py-3 px-4">
             <button
               @click="addToWatchlist(11)"
-              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center text-purple-600 hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
+              :class="isInWatchlist(11) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

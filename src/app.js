@@ -19,6 +19,9 @@ document.addEventListener('alpine:init', () => {
         this.toast.show('The item was added into your watchlist')
       }
     },
+    isInWatchlist(id) {
+      return this.watchingItems.includes(id)
+    },
     toast: {
       visible: false,
       delay: 5000,
