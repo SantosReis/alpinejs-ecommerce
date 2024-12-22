@@ -10,10 +10,14 @@ document.addEventListener('alpine:init', () => {
       this.toast.show('The item was added into the cart')
     },
     addToWatchlist(id) {
-      if (this.watchingItems.includes(id)) return
-
-      this.watchingItems.push(id)
-      this.toast.show('The item was added into the watchlist')
+      // if (this.watchingItems.includes(id)) return
+      if (this.watchingItems.includes(id)) {
+        this.watchingItems.splice(this.watchingItems.indexOf(id))
+        this.toast.show('The item was remoted from your watchlist')
+      } else {
+        this.watchingItems.push(id)
+        this.toast.show('The item was added into your watchlist')
+      }
     },
     toast: {
       visible: false,
