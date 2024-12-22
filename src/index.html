@@ -77,12 +77,14 @@
                 </svg>
                 Cart
               </div>
+              <!-- Cart Items Counter -->
               <small
                 x-show="cartItems"
                 x-transition
                 x-text="cartItems"
                 class="py-[2px] px-[8px] rounded-full bg-red-500"
               ></small>
+              <!--/ Cart Items Counter -->
             </a>
           </li>
           <!-- Account Responsive Menu -->
@@ -306,6 +308,7 @@
                 />
               </svg>
               Cart
+              <!-- Cart Items Counter -->
               <small
                 x-show="cartItems"
                 x-transition
@@ -313,6 +316,7 @@
                 x-text="cartItems"
                 class="absolute z-[100] top-4 -right-3 py-[2px] px-[8px] rounded-full bg-red-500"
               ></small>
+              <!--/ Cart Items Counter -->
             </a>
           </li>
           <li x-data="{open: false}" class="relative">
