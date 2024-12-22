@@ -5,8 +5,8 @@ document.addEventListener('alpine:init', () => {
     get watchlistItems() {
       return this.watchingItems.length
     },
-    addToCart() {
-      this.cartItems++
+    addToCart(quantity = 1) {
+      this.cartItems += parseInt(quantity)
       this.toast.show('The item was added into the cart')
     },
     addToWatchlist(id) {
