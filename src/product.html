@@ -18,7 +18,7 @@
       }
     </style>
   </head>
-  <body x-data="index">
+  <body x-data="productItem">
     <header
       x-data="{mobileMenuOpen: false}"
       class="flex justify-between bg-slate-800 shadow-md text-white"
@@ -79,9 +79,9 @@
               </div>
               <!-- Cart Items Counter -->
               <small
-                x-show="cartItems"
+                x-show="$store.header.cartItems"
                 x-transition
-                x-text="cartItems"
+                x-text="$store.header.cartItems"
                 class="py-[2px] px-[8px] rounded-full bg-red-500"
               ></small>
               <!--/ Cart Items Counter -->
@@ -171,9 +171,9 @@
                   </svg>
                   Watchlist
                   <small
-                    x-show="watchlistItems"
+                    x-show="$store.header.watchlistItems"
                     x-transition
-                    x-text="watchlistItems"
+                    x-text="$store.header.watchlistItems"
                     class="py-[2px] px-[8px] rounded-full bg-red-500"
                   ></small>
                 </a>
@@ -310,10 +310,10 @@
               Cart
               <!-- Cart Items Counter -->
               <small
-                x-show="cartItems"
+                x-show="$store.header.cartItems"
                 x-transition
                 x-cloak
-                x-text="cartItems"
+                x-text="$store.header.cartItems"
                 class="absolute z-[100] top-4 -right-3 py-[2px] px-[8px] rounded-full bg-red-500"
               ></small>
               <!--/ Cart Items Counter -->
@@ -406,9 +406,9 @@
                     Watchlist
                   </div>
                   <small
-                    x-show="watchlistItems"
+                    x-show="$store.header.watchlistItems"
                     x-transition
-                    x-text="watchlistItems"
+                    x-text="$store.header.watchlistItems"
                     class="py-[2px] px-[8px] rounded-full bg-red-500"
                   ></small>
                 </a>

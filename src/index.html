@@ -18,7 +18,7 @@
       }
     </style>
   </head>
-  <body x-data="index">
+  <body x-data="productItem">
     <header
       x-data="{mobileMenuOpen: false}"
       class="flex justify-between bg-slate-800 shadow-md text-white"
@@ -79,9 +79,9 @@
               </div>
               <!-- Cart Items Counter -->
               <small
-                x-show="cartItems"
+                x-show="$store.header.cartItems"
                 x-transition
-                x-text="cartItems"
+                x-text="$store.header.cartItems"
                 class="py-[2px] px-[8px] rounded-full bg-red-500"
               ></small>
               <!--/ Cart Items Counter -->
@@ -171,9 +171,9 @@
                   </svg>
                   Watchlist
                   <small
-                    x-show="watchlistItems"
+                    x-show="$store.header.watchlistItems"
                     x-transition
-                    x-text="watchlistItems"
+                    x-text="$store.header.watchlistItems"
                     class="py-[2px] px-[8px] rounded-full bg-red-500"
                   ></small>
                 </a>
@@ -310,10 +310,10 @@
               Cart
               <!-- Cart Items Counter -->
               <small
-                x-show="cartItems"
+                x-show="$store.header.cartItems"
                 x-transition
                 x-cloak
-                x-text="cartItems"
+                x-text="$store.header.cartItems"
                 class="absolute z-[100] top-4 -right-3 py-[2px] px-[8px] rounded-full bg-red-500"
               ></small>
               <!--/ Cart Items Counter -->
@@ -406,9 +406,9 @@
                     Watchlist
                   </div>
                   <small
-                    x-show="watchlistItems"
+                    x-show="$store.header.watchlistItems"
                     x-transition
-                    x-text="watchlistItems"
+                    x-text="$store.header.watchlistItems"
                     class="py-[2px] px-[8px] rounded-full bg-red-500"
                   ></small>
                 </a>
@@ -559,7 +559,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -604,7 +606,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -649,7 +653,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -694,7 +700,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -739,7 +747,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -784,7 +794,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -829,7 +841,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -874,7 +888,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -919,7 +935,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -964,7 +982,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -1009,7 +1029,9 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart">Add to Cart</button>
+            <button class="btn-primary" @click="addToCart()">
+              Add to Cart
+            </button>
           </div>
         </div>
         <!--/ Product Item -->
@@ -1019,13 +1041,12 @@
 
     <!-- Toast -->
     <div
-      x-data="toast"
-      x-show="toast.visible"
+      x-show="$store.toast.visible"
       x-transition
       x-cloak
       class="fixed w-[400px] left-1/2 -ml-[200px] top-16 py-2 px-4 pb-4 bg-emerald-500 text-white"
     >
-      <div class="font-semibold" x-text="toast.message"></div>
+      <div class="font-semibold" x-text="$store.toast.message"></div>
       <button
         @click="close"
         class="absolute flex items-center justify-center right-2 top-2 w-[30px] h-[30px] rounded-full hover:bg-black/10 transition-colors"
@@ -1049,7 +1070,7 @@
       <div>
         <div
           class="absolute left-0 bottom-0 right-0 h-[6px] bg-black/10"
-          :style="{'width': `${toast.percent}%`}"
+          :style="{'width': `${$store.toast.percent}%`}"
         ></div>
       </div>
     </div>
