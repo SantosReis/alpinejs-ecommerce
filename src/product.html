@@ -660,13 +660,13 @@
               <input
                 type="number"
                 name="quantity"
-                x-ref="quantityEl"
+                x-model="quantity"
                 value="1"
                 class="w-32 focus:border-purple-500 focus:outline-none rounded"
               />
             </div>
             <button
-              @click="addToCart($refs.quantityEl.value)"
+              @click="addToCart(quantity)"
               class="btn-primary py-4 text-lg flex justify-center min-w-0 w-full mb-6"
             >
               <svg

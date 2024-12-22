@@ -2,6 +2,7 @@ document.addEventListener('alpine:init', () => {
   Alpine.data('index', () => ({
     cartItems: 0,
     watchingItems: [],
+    quantity: 1,
     get watchlistItems() {
       return this.watchingItems.length
     },
