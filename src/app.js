@@ -75,7 +75,9 @@ document.addEventListener('alpine:init', () => {
     },
     addToCart(quantity = 1) {
       this.$store.header.cartItems += parseInt(quantity)
-      this.$store.toast.show('The item was added into the cart')
+      this.$dispatch('notify', {
+        message: 'The item was added into your watchlist',
+      })
     },
   }))
 })
