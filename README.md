@@ -25,3 +25,5 @@ x-transition and x-cloak (with tailwind aspect-ratio)
 
 alpine.js data exchange between components
 https://codewithhugo.com/alpinejs-component-communication-event-bus/
+
+Alpine persist
