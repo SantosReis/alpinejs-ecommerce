@@ -55,12 +55,13 @@ document.addEventListener('alpine:init', () => {
       return this.$store.watchlistItems
     },
     addToWatchlist(id) {
-      // if (this.watchingItems.includes(id)) return
+      // if (this.$store.header.watchingItems.includes(id)) return
       if (this.$store.header.watchingItems.includes(id)) {
         this.$store.header.watchingItems.splice(
-          this.$store.header.watchingItems.indexOf(id)
+          this.$store.header.watchingItems.indexOf(id),
+          1
         )
-        this.$store.toast.show('The item was remoted from your watchlist')
+        this.$store.toast.show('The item was removed from your watchlist')
       } else {
         this.$store.header.watchingItems.push(id)
         this.$store.toast.show('The item was added into your watchlist')
