@@ -22,7 +22,7 @@
       }
     </style>
   </head>
-  <body x-data="productItem">
+  <body>
     <header
       x-data="{mobileMenuOpen: false}"
       class="flex justify-between bg-slate-800 shadow-md text-white"
@@ -524,6 +524,7 @@
       >
         <!-- Product Item -->
         <div
+          x-data="productItem(1)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -544,9 +545,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(1)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(1) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -563,7 +564,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -571,6 +572,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(2)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -591,9 +593,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(2)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(2) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -610,7 +612,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -618,6 +620,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(3)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -638,9 +641,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(3)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(3) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -657,7 +660,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -665,6 +668,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(4)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -685,9 +689,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(4)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(4) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -704,7 +708,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -712,6 +716,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(5)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -732,9 +737,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(5)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(5) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -751,7 +756,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -759,6 +764,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(6)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -779,9 +785,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(6)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(6) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -798,7 +804,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -806,6 +812,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(7)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -826,9 +833,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(7)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(7) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -845,7 +852,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -853,6 +860,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(8)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -873,9 +881,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(8)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(8) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -892,7 +900,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -900,6 +908,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(9)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -920,9 +929,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(9)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(9) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -939,7 +948,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -947,6 +956,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(10)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -967,9 +977,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(10)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(10) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -986,7 +996,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>
@@ -994,6 +1004,7 @@
         <!--/ Product Item -->
         <!-- Product Item -->
         <div
+          x-data="productItem(11)"
           class="border border-1 border-gray-200 rounded-md hover:border-purple-600 transition-colors bg-white"
         >
           <a href="/src/product.html" class="block overflow-hidden">
@@ -1014,9 +1025,9 @@
           </div>
           <div class="flex justify-between py-3 px-4">
             <button
-              @click="addToWatchlist(11)"
+              @click="addToWatchlist(id)"
               class="w-10 h-10 rounded-full border border-1 border-purple-600 flex items-center justify-center hover:bg-purple-600 hover:text-white active:bg-purple-800 transition-colors"
-              :class="isInWatchlist(11) ? 'bg-purple-600 text-white' : 'text-purple-600'"
+              :class="isInWatchlist(id) ? 'bg-purple-600 text-white' : 'text-purple-600'"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -1033,7 +1044,7 @@
                 />
               </svg>
             </button>
-            <button class="btn-primary" @click="addToCart()">
+            <button class="btn-primary" @click="addToCart(id)">
               Add to Cart
             </button>
           </div>

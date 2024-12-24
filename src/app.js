@@ -49,7 +49,8 @@ document.addEventListener('alpine:init', () => {
     },
   }))
 
-  Alpine.data('productItem', () => ({
+  Alpine.data('productItem', () => (id) => ({
+    id: id,
     quantity: 1,
     get watchlistItems() {
       return this.$store.watchlistItems
@@ -73,7 +74,7 @@ document.addEventListener('alpine:init', () => {
     isInWatchlist(id) {
       return this.$store.header.watchingItems.includes(id)
     },
-    addToCart(quantity = 1) {
+    addToCart(id, quantity = 1) {
       this.$store.header.cartItems += parseInt(quantity)
       this.$dispatch('notify', {
         message: 'The item was added into your watchlist',

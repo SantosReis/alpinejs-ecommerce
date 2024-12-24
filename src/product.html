@@ -26,7 +26,7 @@
       }
     </style>
   </head>
-  <body x-data="productItem">
+  <body x-data="productItem(1)">
     <header
       x-data="{mobileMenuOpen: false}"
       class="flex justify-between bg-slate-800 shadow-md text-white"
@@ -684,13 +684,13 @@
               <input
                 type="number"
                 name="quantity"
-                x-model="quantity"
+                x-ref="quantityEl"
                 value="1"
                 class="w-32 focus:border-purple-500 focus:outline-none rounded"
               />
             </div>
             <button
-              @click="addToCart(quantity)"
+              @click="addToCart(id, $refs.quantityEl.value)"
               class="btn-primary py-4 text-lg flex justify-center min-w-0 w-full mb-6"
             >
               <svg
