@@ -24,6 +24,7 @@ https://tailwindcss.com/docs/aspect-ratio
 - alpine.js data exchange between components https://codewithhugo.com/alpinejs-component-communication-event-bus/
 - Alpine persist
 - x-ref vs x-model
+- delete
 - Alpine x-data function patterns
 
 ```

@@ -1,15 +1,14 @@
 document.addEventListener('alpine:init', () => {
   Alpine.store('header', {
-    // cartItems: Alpine.$persist(0),
-    cartItemsArray: Alpine.$persist({}),
+    cartItemsObject: Alpine.$persist({}),
     watchingItems: Alpine.$persist([]),
     get watchlistItems() {
       return this.watchingItems.length
     },
     get cartItems() {
       let sum = 0
-      for (let key in this.cartItemsArray) {
-        sum += this.cartItemsArray[key]
+      for (let key in this.cartItemsObject) {
+        sum += this.cartItemsObject[key].quantity
       }
       return sum
     },
@@ -57,9 +56,10 @@ document.addEventListener('alpine:init', () => {
     },
   }))
 
-  Alpine.data('productItem', (id) => {
+  Alpine.data('productItem', (product) => {
     return {
-      id: id,
+      id: product.id,
+      product,
       quantity: 1,
       get watchlistItems() {
         return this.$store.watchlistItems
@@ -84,12 +84,21 @@ document.addEventListener('alpine:init', () => {
         return this.$store.header.watchingItems.includes(id)
       },
       addToCart(id, quantity = 1) {
-        // this.$store.header.cartItems += parseInt(quantity)
-        this.$store.header.cartItemsArray[id] =
-          this.$store.header.cartItemsArray[id] || 0
-        this.$store.header.cartItemsArray[id] += parseInt(quantity)
+        // this.$store.header.cartItemsObject[id] =
+        //   this.$store.header.cartItemsObject[id] || 0
+        // this.$store.header.cartItemsObject[id] += parseInt(quantity)
+        this.$store.header.cartItemsObject[id] = this.$store.header
+          .cartItemsObject[id] || { ...product, quantity: 0 }
+        this.$store.header.cartItemsObject[id].quantity += parseInt(quantity)
+
         this.$dispatch('notify', {
-          message: 'The item was added into your watchlist',
+          message: 'The item was added into cart',
+        })
+      },
+      removeItemFromCart() {
+        delete this.$store.header.cartItemsObject[this.id]
+        this.$dispatch('notify', {
+          message: 'The item was removed from cart',
         })
       },
     }

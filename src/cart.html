@@ -529,53 +529,24 @@
           <!-- Product Items -->
           <div
             x-data="{
-              items: [
-                {
-                  id: 1,
-                  image: 'img/1_1.jpg',
-                  title: 'Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11',
-                  price: 17.99,
-                  'quantity': 1
-                },
-                {
-                  id: 2,
-                  image: 'img/1_1.jpg',
-                  title: 'Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11',
-                  price: 17.99,
-                  'quantity': 1
-                },
-                {
-                  id: 3,
-                  image: 'img/1_1.jpg',
-                  title: 'Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11',
-                  price: 17.99,
-                  'quantity': 1
-                },
-                {
-                  id: 4,
-                  image: 'img/1_1.jpg',
-                  title: 'Logitech G502 HERO High Performance Wired Gaming Mouse, HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11',
-                  price: 17.99,
-                  'quantity': 1
-                },
-              ]
+              items: [],
+              init() {
+                this.items = Object.values(this.$store.header.cartItemsObject)
+              }
             }"
           >
             <!-- Product Item -->
             <template x-for="product of items" :key="product.id">
               <div>
                 <div
-                  x-date="productItem(1)"
+                  x-data="productItem(product)"
                   class="flex flex-col sm:flex-row items-center gap-4"
                 >
-                  <img src="/src/img/1_1.jpg" class="w-36" alt="" />
+                  <img :src="product.image" class="w-36" alt="" />
                   <div class="flex flex-col justify-between">
                     <div class="flex justify-between mb-3">
-                      <h3>
-                        Logitech G502 HERO High Performance Wired Gaming Mouse,
-                        HERO 25K Sensor, 25,600 DPI, RGB, Adjustable Weights, 11
-                      </h3>
-                      <span class="text-lg font-semibold"> $17.99 </span>
+                      <h3 x-text="product.title"></h3>
+                      <span class="text-lg font-semibold"> $<span x-text="product.price"></span> </span>
                     </div>
                     <div class="flex justify-between items-center">
                       <div class="flex items-center">
@@ -583,6 +554,7 @@
                         <select
                           name=""
                           id=""
+                          x-model="product.quantity"
                           class="ml-3 py-1 border-gray-200 focus:border-purple-600 focus:ring-purple-600"
                         >
                           <option value="1">1</option>
@@ -594,7 +566,9 @@
                           <option value="7">7</option>
                         </select>
                       </div>
-                      <a href="#" class="text-purple-600 hover:text-purple-500"
+                      <a 
+                        @click.prevent="removeItemFromCart(product.id)"
+                        href="#" class="text-purple-600 hover:text-purple-500"
                         >Remove</a
                       >
                     </div>
