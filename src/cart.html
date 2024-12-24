@@ -529,9 +529,8 @@
           <!-- Product Items -->
           <div
             x-data="{
-              items: [],
-              init() {
-                this.items = Object.values(this.$store.header.cartItemsObject)
+              get items() {
+                return Object.values(this.$store.header.cartItemsObject)
               }
             }"
           >
