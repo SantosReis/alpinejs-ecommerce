@@ -1,9 +1,17 @@
 document.addEventListener('alpine:init', () => {
   Alpine.store('header', {
-    cartItems: Alpine.$persist(0),
+    // cartItems: Alpine.$persist(0),
+    cartItemsArray: Alpine.$persist({}),
     watchingItems: Alpine.$persist([]),
     get watchlistItems() {
       return this.watchingItems.length
+    },
+    get cartItems() {
+      let sum = 0
+      for (let key in this.cartItemsArray) {
+        sum += this.cartItemsArray[key]
+      }
+      return sum
     },
   })
 
@@ -49,36 +57,41 @@ document.addEventListener('alpine:init', () => {
     },
   }))
 
-  Alpine.data('productItem', () => (id) => ({
-    id: id,
-    quantity: 1,
-    get watchlistItems() {
-      return this.$store.watchlistItems
-    },
-    addToWatchlist(id) {
-      if (this.$store.header.watchingItems.includes(id)) {
-        this.$store.header.watchingItems.splice(
-          this.$store.header.watchingItems.indexOf(id),
-          1
-        )
-        this.$dispatch('notify', {
-          message: 'The item was removed from your watchlist',
-        })
-      } else {
-        this.$store.header.watchingItems.push(id)
+  Alpine.data('productItem', (id) => {
+    return {
+      id: id,
+      quantity: 1,
+      get watchlistItems() {
+        return this.$store.watchlistItems
+      },
+      addToWatchlist(id) {
+        if (this.$store.header.watchingItems.includes(id)) {
+          this.$store.header.watchingItems.splice(
+            this.$store.header.watchingItems.indexOf(id),
+            1
+          )
+          this.$dispatch('notify', {
+            message: 'The item was removed from your watchlist',
+          })
+        } else {
+          this.$store.header.watchingItems.push(id)
+          this.$dispatch('notify', {
+            message: 'The item was added into your watchlist',
+          })
+        }
+      },
+      isInWatchlist(id) {
+        return this.$store.header.watchingItems.includes(id)
+      },
+      addToCart(id, quantity = 1) {
+        // this.$store.header.cartItems += parseInt(quantity)
+        this.$store.header.cartItemsArray[id] =
+          this.$store.header.cartItemsArray[id] || 0
+        this.$store.header.cartItemsArray[id] += parseInt(quantity)
         this.$dispatch('notify', {
           message: 'The item was added into your watchlist',
         })
-      }
-    },
-    isInWatchlist(id) {
-      return this.$store.header.watchingItems.includes(id)
-    },
-    addToCart(id, quantity = 1) {
-      this.$store.header.cartItems += parseInt(quantity)
-      this.$dispatch('notify', {
-        message: 'The item was added into your watchlist',
-      })
-    },
-  }))
+      },
+    }
+  })
 })
