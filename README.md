@@ -18,14 +18,29 @@ https://tailwindcss.com/docs/aspect-ratio
 
 ### Alpine.js
 
-x-transition and x-cloak (with tailwind aspect-ratio)
-@notify and $dispatch
+- x-transition and x-cloak (with tailwind aspect-ratio)
+- @notify and $dispatch
+- @click.prevent to avoid jump to top
+- alpine.js data exchange between components https://codewithhugo.com/alpinejs-component-communication-event-bus/
+- Alpine persist
+- x-ref vs x-model
+- Alpine x-data function patterns
 
-@click.prevent to avoid jump to top
+```
+//1st normal function arrow
+Alpine.data("toast", () => ({
+  //content
+}));
 
-alpine.js data exchange between components
-https://codewithhugo.com/alpinejs-component-communication-event-bus/
+//2nd: function arrow 2 times; double array
+Alpine.data("toast", () => (id) => {
+  //content
+});
 
-Alpine persist
-
-x-ref vs x-model
+//3rd: return
+Alpine.data('productItem', (id) => {
+  return {
+    //content
+  }
+})
+```
