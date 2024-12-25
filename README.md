@@ -4,12 +4,16 @@
 
 ### Javascript
 
-- indexOf vs findIndex
+- indexOf
 - includes
 - splice
 - find
-- includes vs find
+- findIndex
 - delete
+- find vs findIndex
+- indexOf vs findIndex
+- splice + findIndex
+- includes vs find
 - reduce to get total amount of an array/object
 
 ```

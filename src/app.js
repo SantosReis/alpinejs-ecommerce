@@ -109,6 +109,15 @@ document.addEventListener('alpine:init', () => {
           message: 'The item was removed from cart',
         })
       },
+      removeFromWatchlist() {
+        this.$store.header.watchingItems.splice(
+          this.$store.header.watchingItems.findIndex((p) => p.id === this.id),
+          1
+        )
+        this.$dispatch('notify', {
+          message: 'The item was removed from watchlist',
+        })
+      },
     }
   })
 })
