@@ -537,12 +537,9 @@
           },
           submit() {
             console.log(this.form)
-            if(!this.form.name) {
-              this.errors.name = 'This field is required'
-            } else if (this.form.name.length < 2) {
-              this.errors.name = 'The name should be at least two characters';
-            }
-      
+
+            this.validateName()
+
             if(!this.form.email) {
               this.errors.email = 'This field is required'
             }
@@ -551,6 +548,15 @@
             }
             if(!this.form.password_repeat) {
               this.errors.password_repeat = 'This field is required'
+            }
+          },
+          validateName(){
+            console.log('validateName')
+            this.errors.name = '';
+            if(!this.form.name) {
+              this.errors.name = 'This field is required'
+            } else if (this.form.name.length < 2) {
+              this.errors.name = 'The name should be at least two characters';
             }
           }
         }"
@@ -573,8 +579,9 @@
             type="text"
             name="name"
             x-model="form.name"
+            @input="validateName()"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
-            :class="{'border-red-500 ring-1 ring-red-500': errors.name}"
+            :class="errors.name ? 'border-red-600 focus:border-red-600 ring-1 ring-red-600 focus:ring-red-600': 'focus:ring-purple-500 focus:border-purple-500'"
           />
           <p x-if="errors.name" x-text="errors.name" class="text-red-600"></p>
         </div>

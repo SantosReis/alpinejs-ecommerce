@@ -24,10 +24,8 @@ get total() {
 
 ### Tailwind
 
-tailwind aspect ratio
-
-https://github.com/tailwindlabs/tailwindcss-aspect-ratio
-https://tailwindcss.com/docs/aspect-ratio
+- tailwind aspect ratio [github](https://github.com/tailwindlabs/tailwindcss-aspect-ratio) | [tailwindcss](https://tailwindcss.com/docs/aspect-ratio)
+- focus:ring and focus:border
 
 ### Alpine.js
 
