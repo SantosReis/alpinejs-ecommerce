@@ -8,7 +8,7 @@ document.addEventListener('alpine:init', () => {
     get cartItems() {
       let sum = 0
       for (let key in this.cartItemsObject) {
-        sum += this.cartItemsObject[key].quantity
+        sum += parseInt(this.cartItemsObject[key].quantity)
       }
       return sum
     },

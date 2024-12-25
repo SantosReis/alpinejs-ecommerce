@@ -525,15 +525,18 @@
       <div class="container lg:w-2/3 xl:w-2/3 mx-auto">
         <h1 class="text-3xl font-bold mb-6">Your Cart Items</h1>
 
-        <div class="bg-white p-4 rounded-lg shadow">
+        <div x-data="{
+            get items() {
+              return Object.values(this.$store.header.cartItemsObject)
+            },
+            get total() {
+              return this.items.reduce((accum, next) => accum + next.price * next.quantity, 0).toFixed(2)
+            }
+          }"
+          class="bg-white p-4 rounded-lg shadow"
+        >
           <!-- Product Items -->
-          <div
-            x-data="{
-              get items() {
-                return Object.values(this.$store.header.cartItemsObject)
-              }
-            }"
-          >
+          <div>
             <!-- Product Item -->
             <template x-for="product of items" :key="product.id">
               <div>
@@ -582,7 +585,7 @@
           <div class="border-t border-gray-300 pt-4">
             <div class="flex justify-between">
               <span class="font-semibold">Subtotal</span>
-              <span class="text-xl">$157</span>
+              <span class="text-xl" x-text="`$${total}`"></span>
             </div>
             <p class="text-gray-500 mb-6">
               Shipping and taxes calculated at checkout.
