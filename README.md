@@ -36,6 +36,7 @@ get total() {
 - Alpine persist
 - x-ref vs x-model
 - Alpine x-data function patterns
+- x-if only works inside template; try with x-show
 
 ```
 //1st normal function arrow

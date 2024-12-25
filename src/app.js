@@ -144,6 +144,8 @@ document.addEventListener('alpine:init', () => {
 
       this.validateName()
       this.validateEmail()
+      this.validatePassword()
+      this.validatePasswordRepeat()
 
       if (!this.form.password) {
         this.errors.password = 'This field is required'
@@ -174,6 +176,20 @@ document.addEventListener('alpine:init', () => {
       return /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(
         this.form.email
       )
+    },
+    validatePassword() {
+      this.errors.password = ''
+
+      if (!this.form.password) {
+        this.errors.password = 'This field is required'
+      }
+    },
+    validatePasswordRepeat() {
+      this.errors.password_repeat = ''
+
+      if (!this.form.password_repeat) {
+        this.errors.password_repeat = 'This field is required'
+      }
     },
   }))
 })
