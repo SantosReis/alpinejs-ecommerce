@@ -522,47 +522,7 @@
         action=""
         method="post"
         class="w-[400px] mx-auto p-6 my-16"
-        x-data="{
-          defaultClasses: 'focus:ring-purple-500 focus:border-purple-500',
-          errorClasses: 'border-red-600 focus:border-red-600 ring-1 ring-red-600 focus:ring-red-600',
-          successClasses:'border-emerald-500 focus:border-emerald-500 ring-1 ring-emerald-500 focus:ring-emerald-500',
-          form: {
-            name: '',
-            email: '',
-            password: '',
-            password_repeat: '',
-          },
-          errors: {
-            name: '',
-            email: '',
-            password: '',
-            password_repeat: '',
-          },
-          submit() {
-            console.log(this.form)
-
-            this.validateName()
-
-            if(!this.form.email) {
-              this.errors.email = 'This field is required'
-            }
-            if(!this.form.password) {
-              this.errors.password = 'This field is required'
-            }
-            if(!this.form.password_repeat) {
-              this.errors.password_repeat = 'This field is required'
-            }
-          },
-          validateName(){
-            console.log('validateName')
-            this.errors.name = '';
-            if(!this.form.name) {
-              this.errors.name = 'This field is required'
-            } else if (this.form.name.length < 2) {
-              this.errors.name = 'The name should be at least two characters';
-            }
-          }
-        }"
+        x-data="signupForm"
         @submit.prevent="submit"
       >
         <h2 class="text-2xl font-semibold text-center mb-4">
@@ -594,8 +554,9 @@
             type="email"
             name="email"
             x-model="form.email"
+            @input="validateEmail()"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
-            :class="{'border-red-500 ring-1 ring-red-500': errors.email}"
+            :class="errors.email ? errorClasses : (form.name ? successClasses : defaultClasses)"
           />
           <p x-if="errors.email" x-text="errors.email" class="text-red-600"></p>
         </div>
@@ -605,8 +566,9 @@
             type="password"
             name="password"
             x-model="form.password"
+            @input="validatePassword()"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
-            :class="{'border-red-500 ring-1 ring-red-500': errors.password}"
+            :class="errors.password ? errorClasses : (form.name ? successClasses : defaultClasses)"
           />
           <p
             x-if="errors.password"
@@ -620,8 +582,9 @@
             type="password"
             name="password"
             x-model="form.password_repeat"
+            @input="validatePasswordRepeat()"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
-            :class="{'border-red-500 ring-1 ring-red-500': errors.password_repeat}"
+            :class="errors.password_repeat ? errorClasses : (form.name ? successClasses : defaultClasses)"
           />
           <p
             x-if="errors.password_repeat"
