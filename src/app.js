@@ -6,11 +6,16 @@ document.addEventListener('alpine:init', () => {
       return this.watchingItems.length
     },
     get cartItems() {
-      let sum = 0
-      for (let key in this.cartItemsObject) {
-        sum += parseInt(this.cartItemsObject[key].quantity)
-      }
-      return sum
+      // let sum = 0
+      // for (let key in this.cartItemsObject) {
+      //   sum += parseInt(this.cartItemsObject[key].quantity)
+      // }
+      // return sum
+
+      return Object.values(this.cartItemsObject).reduce(
+        (accum, next) => accum + parseInt(next.quantity),
+        0
+      )
     },
   })
 
