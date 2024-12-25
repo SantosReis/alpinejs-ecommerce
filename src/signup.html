@@ -529,13 +529,36 @@
             password: '',
             password_repeat: '',
           },
+          errors: {
+            name: '',
+            email: '',
+            password: '',
+            password_repeat: '',
+          },
           submit() {
             console.log(this.form)
+            if(!this.form.name) {
+              this.errors.name = 'This field is required'
+            } else if (this.form.name.length < 2) {
+              this.errors.name = 'The name should be at least two characters';
+            }
+      
+            if(!this.form.email) {
+              this.errors.email = 'This field is required'
+            }
+            if(!this.form.password) {
+              this.errors.password = 'This field is required'
+            }
+            if(!this.form.password_repeat) {
+              this.errors.password_repeat = 'This field is required'
+            }
           }
         }"
         @submit.prevent="submit"
       >
-        <h2 class="text-2xl font-semibold text-center mb-4">Create an account</h2>
+        <h2 class="text-2xl font-semibold text-center mb-4">
+          Create an account
+        </h2>
         <p class="text-center text-gray-500 mb-3">
           or
           <a
@@ -551,9 +574,10 @@
             name="name"
             x-model="form.name"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
+            :class="{'border-red-500 ring-1 ring-red-500': errors.name}"
           />
+          <p x-if="errors.name" x-text="errors.name" class="text-red-600"></p>
         </div>
-        </p>
         <div class="mb-4">
           <input
             placeholder="Your Email"
@@ -561,7 +585,9 @@
             name="email"
             x-model="form.email"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
+            :class="{'border-red-500 ring-1 ring-red-500': errors.email}"
           />
+          <p x-if="errors.email" x-text="errors.email" class="text-red-600"></p>
         </div>
         <div class="mb-4">
           <input
@@ -570,8 +596,13 @@
             name="password"
             x-model="form.password"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
+            :class="{'border-red-500 ring-1 ring-red-500': errors.password}"
           />
-        </div>
+          <p
+            x-if="errors.password"
+            x-text="errors.password"
+            class="text-red-600"
+          ></p>
         </div>
         <div class="mb-4">
           <input
@@ -580,7 +611,13 @@
             name="password"
             x-model="form.password_repeat"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
+            :class="{'border-red-500 ring-1 ring-red-500': errors.password_repeat}"
           />
+          <p
+            x-if="errors.password_repeat"
+            x-text="errors.password_repeat"
+            class="text-red-600"
+          ></p>
         </div>
 
         <button
