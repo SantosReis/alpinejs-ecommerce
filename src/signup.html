@@ -581,7 +581,7 @@
             x-model="form.name"
             @input="validateName()"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
-            :class="errors.name ? 'border-red-600 focus:border-red-600 ring-1 ring-red-600 focus:ring-red-600': 'focus:ring-purple-500 focus:border-purple-500'"
+            :class="errors.name ? 'border-red-600 focus:border-red-600 ring-1 ring-red-600 focus:ring-red-600' : (form.name ? 'border-emerald-600 focus:border-emerald-600 ring-1 ring-emerald-600 focus:ring-emerald-600' : 'focus:ring-purple-500 focus:border-purple-500')"
           />
           <p x-if="errors.name" x-text="errors.name" class="text-red-600"></p>
         </div>
