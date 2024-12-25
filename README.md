@@ -4,10 +4,19 @@
 
 ### Javascript
 
-indexOf
-findIndex
-includes
-splice
+- indexOf vs findIndex
+- includes
+- splice
+- find
+- includes vs find
+- delete
+- reduce to get total amount of an array/object
+
+```
+get total() {
+  return this.items.reduce((accum, next) => accum + next.price * next.quantity, 0).toFixed(2)
+}
+```
 
 ### Tailwind
 
@@ -24,7 +33,6 @@ https://tailwindcss.com/docs/aspect-ratio
 - alpine.js data exchange between components https://codewithhugo.com/alpinejs-component-communication-event-bus/
 - Alpine persist
 - x-ref vs x-model
-- delete
 - Alpine x-data function patterns
 
 ```
@@ -44,12 +52,4 @@ Alpine.data('productItem', (id) => {
     //content
   }
 })
-```
-
-- reduce to get total amount of an array/object
-
-```
-get total() {
-  return this.items.reduce((accum, next) => accum + next.price * next.quantity, 0).toFixed(2)
-}
 ```

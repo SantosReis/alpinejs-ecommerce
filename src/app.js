@@ -69,24 +69,27 @@ document.addEventListener('alpine:init', () => {
       get watchlistItems() {
         return this.$store.watchlistItems
       },
-      addToWatchlist(id) {
-        if (this.$store.header.watchingItems.includes(id)) {
+      addToWatchlist() {
+        if (this.isInWatchlist()) {
           this.$store.header.watchingItems.splice(
-            this.$store.header.watchingItems.indexOf(id),
+            this.$store.header.watchingItems.findIndex(
+              (p) => p.id === product.id
+            ),
             1
           )
           this.$dispatch('notify', {
             message: 'The item was removed from your watchlist',
           })
         } else {
-          this.$store.header.watchingItems.push(id)
+          this.$store.header.watchingItems.push(product)
           this.$dispatch('notify', {
             message: 'The item was added into your watchlist',
           })
         }
       },
-      isInWatchlist(id) {
-        return this.$store.header.watchingItems.includes(id)
+      isInWatchlist() {
+        // return this.$store.header.watchingItems.includes(product)
+        return this.$store.header.watchingItems.find((p) => p.id === product.id)
       },
       addToCart(id, quantity = 1) {
         // this.$store.header.cartItemsObject[id] =
