@@ -523,6 +523,9 @@
         method="post"
         class="w-[400px] mx-auto p-6 my-16"
         x-data="{
+          defaultClasses: 'focus:ring-purple-500 focus:border-purple-500',
+          errorClasses: 'border-red-600 focus:border-red-600 ring-1 ring-red-600 focus:ring-red-600',
+          successClasses:'border-emerald-500 focus:border-emerald-500 ring-1 ring-emerald-500 focus:ring-emerald-500',
           form: {
             name: '',
             email: '',
@@ -581,7 +584,7 @@
             x-model="form.name"
             @input="validateName()"
             class="border-gray-300 focus:border-purple-500 focus:outline-none focus:ring-purple-500 rounded-md w-full"
-            :class="errors.name ? 'border-red-600 focus:border-red-600 ring-1 ring-red-600 focus:ring-red-600' : (form.name ? 'border-emerald-600 focus:border-emerald-600 ring-1 ring-emerald-600 focus:ring-emerald-600' : 'focus:ring-purple-500 focus:border-purple-500')"
+            :class="errors.name ? errorClasses : (form.name ? successClasses : defaultClasses)"
           />
           <p x-if="errors.name" x-text="errors.name" class="text-red-600"></p>
         </div>
